@@ -1,0 +1,94 @@
+Arguments: 
+  /Users/mkicinski/.nvm/versions/node/v6.10.2/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /Users/mkicinski/.nvm/versions/node/v6.10.2/bin:/usr/local/bin:/Users/mkicinski/dev/.npm-packages/bin:/Users/mkicinski/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.24.6
+
+Node version: 
+  6.10.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "author": "Lorenzo Mangani <lorenzo.mangani@gmail.com>",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/sirensolutions/sentinl.git"
+    },
+    "name": "sentinl",
+    "version": "5.6.4-SNAPSHOT",
+    "kibana": {
+      "version": "5.6.4"
+    },
+    "description": "Kibana Alert & Report App for Elasticsearch",
+    "main": "index.js",
+    "scripts": {
+      "test": "gulp test",
+      "testdev": "gulp testdev",
+      "testserver": "gulp testserver",
+      "test:coverage": "gulp coverage",
+      "precommit": "gulp lint",
+      "sentinl-install": "/opt/kibana/bin/kibi plugin --install sentinl -u file://`pwd`/sentinl-latest.tar.gz",
+      "sentinl-remove": "/opt/kibana/bin/kibi plugin --remove sentinl",
+      "package": "gulp package",
+      "archive": "tar cfz ./sentinl-latest.tar.gz --exclude .git --exclude .gitignore --exclude .github --exclude gradle --exclude build --exclude target --exclude sentinl-latest.tar.gz ./* && ls -alF sentinl-latest*"
+    },
+    "dependencies": {
+      "@elastic/datemath": "2.3.0",
+      "angular": "1.4.8",
+      "angular-ui-bootstrap": "2.5.0",
+      "anomaly-finder": "1.0.1",
+      "bluebird": "3.4.7",
+      "boom": "7.1.1",
+      "bootstrap": "3.3.7",
+      "decompress": "4.2.0",
+      "elasticsearch": "13.2.0",
+      "emailjs": "1.0.8",
+      "later": "1.2.0",
+      "mustache": "2.3.0",
+      "node-horseman": "3.3.0",
+      "node-slack": "0.0.7",
+      "sum-time": "1.0.0",
+      "uuid": "3.1.0"
+    },
+    "devDependencies": {
+      "babel-eslint": "6.1.2",
+      "eslint": "3.14.1",
+      "eslint-plugin-mocha": "4.8.0",
+      "gulp": "3.9.1",
+      "gulp-eslint": "1.1.1",
+      "gulp-util": "3.0.8",
+      "gulp-zip": "3.1.0",
+      "husky": "0.10.2",
+      "lodash": "3.10.1",
+      "minimist": "1.2.0",
+      "mkdirp": "0.5.1",
+      "rimraf": "2.5.4",
+      "rsync": "0.4.0"
+    },
+    "license": "Apache-2.0"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: npm.org/@elastic%2fdatemath: Invalid URI "npm.org/@elastic%2fdatemath"
+      at Request.init (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:107942:31)
+      at new Request (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:107796:8)
+      at request (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:106394:10)
+      at RequestManager.execute (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:56300:17)
+      at RequestManager.shiftQueue (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:56327:10)
+      at promise.default (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:56104:12)
+      at Promise.F (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:29142:28)
+      at RequestManager.request (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:56102:21)
+      at NpmRegistry.request (/usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:30492:32)
+      at /usr/local/Cellar/yarn/0.24.6/libexec/lib/yarn-cli.js:43431:54

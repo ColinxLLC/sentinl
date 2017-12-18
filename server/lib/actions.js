@@ -443,6 +443,7 @@ export default function (server, actions, payload, task) {
     var req;
     if (_.has(action, 'webhook')) {
       var http = action.webhook.use_https ? require('https') : require('http');
+      const ProxyAgent = action.webhook.use_https ? require('https-proxy-agent') : require('http-proxy-agent');
 
       options = {
         hostname: action.webhook.host ? action.webhook.host : 'localhost',
@@ -452,6 +453,15 @@ export default function (server, actions, payload, task) {
         headers: action.webhook.headers ? action.webhook.headers : {},
         auth: action.webhook.auth ? action.webhook.auth : undefined
       };
+
+      server.log(['status', 'info', 'Sentinl'], JSON.stringify(config.settings));
+
+      if (config.settings.webhook && config.settings.webhook.proxy) {
+        server.log(['status', 'info', 'Sentinl'], 'Using the proxy ' + config.settings.webhook.proxy + ' for the webhook');
+        options.agent = new ProxyAgent(config.settings.webhook.proxy);
+      } else {
+        server.log(['status', 'info', 'Sentinl'], 'Not using a proxy for the webhook');
+      }
 
       var dataToWrite = action.webhook.body ? mustache.render(action.webhook.body, {payload: payload}) : action.webhook.params;
       if (dataToWrite) {

@@ -124,7 +124,8 @@ export default function (kibana) {
             host: Joi.string(),
             port: Joi.number(),
             path: Joi.string().default(':/{{payload.watcher_id}'),
-            body: Joi.string().default('{{payload.watcher_id}}{payload.hits.total}}')
+            body: Joi.string().default('{{payload.watcher_id}}{payload.hits.total}}'),
+            proxy: Joi.string()
           }).default(),
           report: Joi.object({
             active: Joi.boolean().default(false),
